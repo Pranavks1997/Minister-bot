@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser');
+var multer = require("multer");
+const busboy = require("connect-busboy");
+const busboyBodyParser = require("busboy-body-parser");
 const app = express();
 const mongoose = require('mongoose');
 const PORT = 3000;
@@ -10,12 +13,20 @@ const MinisterController = require('./controllers/MinisterController')
 const ResultadoController = require('./controllers/ResultadoController')
 const AgendaController = require('./controllers/AgendaController')
 const ChannelController = require('./controllers/ChannelController')
+const ImageUploadController = require('./controllers/image-upload')
+const Busboy = require("busboy");
 
 
 mongoose.Promise = Promise
 
 app.use(cors())
-app.use(bodyParser.json())
+app.use(busboy());
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(busboyBodyParser());
+
+
 
 // app.post('/api/saveDealerInfo', (req, res) => {
 //     // store this on database
@@ -67,3 +78,4 @@ app.use('/ministers', MinisterController)
 app.use('/agendas', AgendaController)
 app.use('/resultados', ResultadoController)
 app.use('/channel', ChannelController)
+app.use('/image-upload',ImageUploadController)

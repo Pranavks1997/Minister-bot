@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DBURL = 'mongodb://localhost:27017/Minister-app'
+const DBURL = 'mongodb+srv://admin:root@cluster0-wsrrg.mongodb.net/test?retryWrites=true&w=majority'
 var db = mongoose.connect(DBURL)
 .then(() => console.log('mongoose up'))
 
