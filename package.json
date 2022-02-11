@@ -25,7 +25,7 @@
     "dialogflow-fulfillment": "^0.6.1",
     "enum": "^2.5.0",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^5.3.1",
     "mongoose": "^5.8.7",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
